@@ -23,12 +23,6 @@ public class MainActivity extends AppCompatActivity implements NavigationHost {
         }
     }
 
-    /**
-     * Navigate to the given fragment.
-     *
-     * @param fragment       Fragment to navigate to.
-     * @param addToBackstack Whether or not the current fragment should be added to the backstack.
-     */
     @Override
     public void navigateTo(Fragment fragment, boolean addToBackstack) {
         FragmentTransaction transaction =

@@ -1,64 +1,81 @@
 package com.nicolas.vwarwj2.volkswagenagenda.adapter;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.nicolas.vwarwj2.volkswagenagenda.ProfileActivity;
 import com.nicolas.vwarwj2.volkswagenagenda.R;
-import com.nicolas.vwarwj2.volkswagenagenda.pojo.SimpleModel;
+import com.nicolas.vwarwj2.volkswagenagenda.pojo.ContactoModel;
 
-import java.util.List;
-
+import java.util.ArrayList;
 
 public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerView.MyViewHolder> {
-    private List<SimpleModel> mDataset;
+    ArrayList <ContactoModel> listaContactos;
 
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
-        public TextView itemView;
+
+                TextView nombre,info;
+                ImageView foto;
+                LinearLayout idContact;
 
         public MyViewHolder(View v) {
-            super(v);
-            itemView = (TextView) v.findViewById(R.id.simple_text);
-        }
-
-        public void bindData(final SimpleModel viewModel) {
-            itemView.setText(viewModel.getSimpleText());
+                    super(v);
+            nombre = itemView.findViewById(R.id.idNombre);
+            info = itemView.findViewById(R.id.idInfo);
+            foto = itemView.findViewById(R.id.idImagen);
+            idContact = v.findViewById(R.id.contactoID);
         }
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public AdapterRecyclerView(List<SimpleModel> myDataset) {
-        mDataset = myDataset;
+    public AdapterRecyclerView(ArrayList <ContactoModel>  lista) {
+        this.listaContactos = lista;
     }
-
 
     // Create new views (invoked by the layout manager)
     @Override
     public AdapterRecyclerView.MyViewHolder onCreateViewHolder(ViewGroup parent,
                                                                int viewType) {
-        View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.text_view, parent, false);
+        View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_contactos_list, parent, false);
         return new MyViewHolder(layoutView);
     }
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        ((MyViewHolder) holder).bindData(mDataset.get(position));
-
+        holder.nombre.setText(listaContactos.get(position).getNombre());
+        holder.info.setText(listaContactos.get(position).getInfo());
+        holder.foto.setImageResource(listaContactos.get(position).getFoto());
+        holder.idContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                           Intent i = new Intent (view.getContext(),ProfileActivity.class);
+                i.putExtra("nombre", listaContactos.get(position).getNombre());
+                i.putExtra("email",listaContactos.get(position).getInfo());
+                i.putExtra("telefono",listaContactos.get(position).getTelefono());
+                i.putExtra("imageId",listaContactos.get(position).getFoto());
+                view.getContext().startActivity(i);
+            }
+        });
     }
-
     // Return the size of your dataset (invoked by the layout manager)
     @Override
-    public int getItemCount() {
-        return mDataset.size();
+    public int getItemCount(){
+        return listaContactos.size();
     }
 
+public void setFilter (ArrayList<ContactoModel> nuevaLista) {
+        listaContactos = new ArrayList<>();
+        listaContactos.addAll(nuevaLista);
+        notifyDataSetChanged();
+
+}
 }

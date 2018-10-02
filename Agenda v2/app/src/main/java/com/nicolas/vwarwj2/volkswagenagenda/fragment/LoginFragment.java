@@ -1,5 +1,7 @@
 package com.nicolas.vwarwj2.volkswagenagenda.fragment;
 
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,7 +15,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.nicolas.vwarwj2.volkswagenagenda.interfaz.NavigationHost;
+
+import com.nicolas.vwarwj2.volkswagenagenda.InicioActivity;
 import com.nicolas.vwarwj2.volkswagenagenda.R;
 
 
@@ -36,15 +39,23 @@ public class LoginFragment extends Fragment {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!isPasswordAndUsernameValid(passwordEditText.getText(),usernameEditText.getText()) ) {
+
+                if (!isPasswordValid(passwordEditText.getText())&&!isUsernameValid(usernameEditText.getText()) ) {
+
                     passwordTextInput.setError(getString(R.string.shr_error_password));
                     usernameTextInput.setError(getString(R.string.shr_error_username));
                     passwordEditText.getText().clear();
                     usernameEditText.getText().clear();
 
                 } else {
+
                     passwordTextInput.setError(null); // Clear the error
-                    ((NavigationHost) getActivity()).navigateTo(new ProductGridFragment(), false); // Navigate to the next Fragment
+                    usernameTextInput.setError(null);
+                    passwordEditText.getText().clear();
+                    usernameEditText.getText().clear();
+                    //((NavigationHost) getActivity()).navigateTo(new ContactosFragment(), false); // Navigate to the next Fragment
+                    goToMainPage();
+
                 }
             }
         });
@@ -53,7 +64,7 @@ public class LoginFragment extends Fragment {
         passwordEditText.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                if (isPasswordAndUsernameValid(passwordEditText.getText(),usernameEditText.getText())) {
+                if (isPasswordValid(passwordEditText.getText())) {
                     passwordTextInput.setError(null); //Clear the error
                     usernameTextInput.setError(null);
                 }
@@ -61,13 +72,19 @@ public class LoginFragment extends Fragment {
             }
         });
 
-
-
         return view;
     }
 
-    private boolean isPasswordAndUsernameValid(@Nullable Editable pass,@Nullable Editable user) {
-        return (pass != null && pass.toString().equals("rikap") && user != null && user.toString().equals("nicolas")) ;
+    private boolean isPasswordValid(@Nullable Editable pass) {
+        return (pass != null && pass.toString().equals("n")) ;
     }
 
+    private boolean isUsernameValid(@Nullable Editable user) {
+        return (user != null && user.toString().equals("n")) ;
+    }
+    private void goToMainPage() {
+        Intent i = new Intent(getActivity(), InicioActivity.class);
+        startActivity(i);
+
+    }
 }
