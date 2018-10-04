@@ -77,16 +77,16 @@ public class ContactosFragment extends Fragment {
     }
 
     private void llenarListaConContactos() {
-        listaContactos.add(new ContactoModel("Nicolas","nicolasrikap@outlook.com",R.mipmap.ic_launcher,1162521895));
-        listaContactos.add(new ContactoModel("Melina","melina@outlook.com",R.mipmap.ic_launcher, 1145665444));
-        listaContactos.add(new ContactoModel("Adriana","adriana@outlook.com",R.mipmap.ic_launcher,1141429811));
-        listaContactos.add(new ContactoModel("Jose","jose@outlook.com",R.mipmap.ic_launcher,1148659878));
-        listaContactos.add(new ContactoModel("Adrian","adrian@outlook.com",R.mipmap.ic_launcher,1164983521));
-        listaContactos.add(new ContactoModel("Maria","maria@outlook.com",R.mipmap.ic_launcher,1148975848));
-        listaContactos.add(new ContactoModel("Pablo","pablo@outlook.com",R.mipmap.ic_launcher,1148796584));
-        listaContactos.add(new ContactoModel("Alfredo","alfredo@outlook.com",R.mipmap.ic_launcher,1148963498));
-        listaContactos.add(new ContactoModel("Roberto","roberto@outlook.com",R.mipmap.ic_launcher,1149852321));
-        listaContactos.add(new ContactoModel("Florencia","florencia@outlook.com",R.mipmap.ic_launcher,1149815631));
-        listaContactos.add(new ContactoModel("Ana","ana@outlook.com",R.mipmap.ic_launcher,1164565665));
+        listaContactos.add(new ContactoModel("Nicolas","nicolasrikap@outlook.com",R.drawable.header,1162521895));
+        listaContactos.add(new ContactoModel("Melina","melina@outlook.com",R.drawable.header, 1145665444));
+        listaContactos.add(new ContactoModel("Adriana","adriana@outlook.com",R.drawable.header,1141429811));
+        listaContactos.add(new ContactoModel("Jose","jose@outlook.com",R.drawable.header,1148659878));
+        listaContactos.add(new ContactoModel("Adrian","adrian@outlook.com",R.drawable.header,1164983521));
+        listaContactos.add(new ContactoModel("Maria","maria@outlook.com",R.drawable.header,1148975848));
+        listaContactos.add(new ContactoModel("Pablo","pablo@outlook.com",R.drawable.header,1148796584));
+        listaContactos.add(new ContactoModel("Alfredo","alfredo@outlook.com",R.drawable.header,1148963498));
+        listaContactos.add(new ContactoModel("Roberto","roberto@outlook.com",R.drawable.header,1149852321));
+        listaContactos.add(new ContactoModel("Florencia","florencia@outlook.com",R.drawable.header,1149815631));
+        listaContactos.add(new ContactoModel("Ana","ana@outlook.com",R.drawable.header,1164565665));
     }
 }

@@ -1,10 +1,14 @@
 package com.nicolas.vwarwj2.volkswagenagenda;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -12,48 +16,55 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    String titulo = "Perfil";
     boolean valor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_profile_scroll);
         Intent i = getIntent();
         String nombre = i.getStringExtra("nombre");
-        TextView textNombre = (TextView) findViewById(R.id.perfilName);
-            textNombre.setText(nombre);
         String mail= i.getStringExtra("email");
-        TextView textMail = (TextView) findViewById(R.id.emailName);       // EMAIL
+        TextView textMail = (TextView) findViewById(R.id.tvNumber3);       // EMAIL
             textMail.setText(mail);
         int telefono = i.getIntExtra("telefono",0);
-       TextView textTel = (TextView) findViewById(R.id.telName);       // TELEFONO
+       TextView textTel = (TextView) findViewById(R.id.tvNumber1);       // TELEFONO
+       TextView textTel1 = (TextView) findViewById(R.id.tvNumber2);
             textTel.setText(String.valueOf(telefono));
+            textTel1.setText(String.valueOf(telefono));
         int idFoto = i.getIntExtra("imageId",0);
         ImageView imagePhoto = (ImageView) findViewById(R.id.fotoID);
            imagePhoto.setImageResource(idFoto);
         valor = i.getBooleanExtra("MenuPerfil",false);
-        agregarToolbar();
 
-        final ImageButton botonWs = (ImageButton) findViewById(R.id.sendWhatsapp);
-        final ImageButton botonMail = (ImageButton) findViewById(R.id.sendEmail);
-        final ImageButton botonLlamar = (ImageButton) findViewById(R.id.callPerson);
+
+        final RelativeLayout botonWs = (RelativeLayout) findViewById(R.id.wsOption);
+        final RelativeLayout botonMail = (RelativeLayout) findViewById(R.id.emailOption);
+        final RelativeLayout botonLlamar = (RelativeLayout) findViewById(R.id.callingOption);
 
         llamarPersona(botonLlamar,telefono);
         enviarMail(botonMail,mail);
         enviarWhatsapp(botonWs,telefono);
+        agregarToolbar();
+        definirCollapsingToolbar(nombre);
+        definirBotonMail(mail);
     }
-        @Override
+
+    @Override
         protected void onNewIntent (Intent intent) {
             setIntent(intent);
+
         }
 
-    private void enviarWhatsapp(ImageButton botonWs,final int telefono) {
+
+
+    private void enviarWhatsapp(RelativeLayout botonWs,final int telefono) {
         botonWs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,7 +75,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
     }
-    public void llamarPersona(ImageButton boton,final int numero) {
+    public void llamarPersona(RelativeLayout boton,final int numero) {
         boton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent callIntent = new Intent(Intent.ACTION_DIAL);
@@ -73,7 +84,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
     }
-    public void enviarMail(ImageButton boton, final String email){
+    public void enviarMail(RelativeLayout boton, final String email){
         boton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO,Uri.fromParts("mailto",email,null));
@@ -107,7 +118,23 @@ public class ProfileActivity extends AppCompatActivity {
         final ActionBar ab = getSupportActionBar();
         if (ab != null) {
             ab.setDisplayHomeAsUpEnabled(true);
-            ab.setTitle(titulo);
+
         }
+    }
+    private void definirCollapsingToolbar(String nombre) {
+        Context context = this;
+        CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
+        collapsingToolbarLayout.setContentScrimColor(ContextCompat.getColor(context,R.color.colorAccent));
+        collapsingToolbarLayout.setTitle(nombre);
+    }
+    private void definirBotonMail(final String mail) {
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mailIntent = new Intent(Intent.ACTION_SENDTO,Uri.fromParts("mailto",mail,null));
+                tryButton(mailIntent);
+            }
+        });
     }
 }

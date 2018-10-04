@@ -54,9 +54,12 @@ public class InicioActivity extends AppCompatActivity
 
     }
 
-
     public void onResume (){
         navigationView.getMenu().getItem(0).setChecked(true);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if(drawer.isDrawerOpen(GravityCompat.START)){
+            drawer.closeDrawer(GravityCompat.START);
+        }
         super.onResume();
     }
 
@@ -68,7 +71,7 @@ public class InicioActivity extends AppCompatActivity
         } else {
             new AlertDialog.Builder(this)
                     .setIcon(android.R.drawable.ic_dialog_alert)
-                    .setTitle("Cerrando aplicacion")
+                    .setTitle("Cerrando Aplicacion")
                     .setMessage("¿Estas seguro de salir?")
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener()
                     {
@@ -167,7 +170,7 @@ public class InicioActivity extends AppCompatActivity
         i.putExtra("nombre", "Nicolas Rikap");
         i.putExtra("email","nicolasrikap@outlook.com");
         i.putExtra("telefono",1160334291);
-        i.putExtra("imageId",R.drawable.logoheader);
+        i.putExtra("imageId",R.drawable.paisaje);
         i.putExtra("MenuPerfil",true);
     }
 }

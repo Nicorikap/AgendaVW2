@@ -39,6 +39,9 @@
     <string name="help">Ayuda</string>
     <string name="edit_profile">Editar perfil</string>
     <string name="login_session">Iniciar sesión</string>
+    <string name="call">Teléfono</string>
+    <string name="whatsapp">Whatsapp</string>
+    <string name="mail">E-mail</string>
 
     <!-- Strings de la activity de Settings -->
     <string name="titulo_actividad_configuracion">Configuración</string>
