@@ -130,7 +130,7 @@ public class InicioActivity extends AppCompatActivity
                 break;
             case R.id.item_configuracion:
                 item.setChecked(true);
-                iniciarIntento(SettingsActivity.class);
+                iniciarIntento(FirebaseExample.class);
                 break;
         }
 

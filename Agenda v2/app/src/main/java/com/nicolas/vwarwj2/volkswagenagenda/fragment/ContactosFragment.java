@@ -87,6 +87,14 @@ public class ContactosFragment extends Fragment {
         listaContactos.add(new ContactoModel("Alfredo","alfredo@outlook.com",R.drawable.header,1148963498));
         listaContactos.add(new ContactoModel("Roberto","roberto@outlook.com",R.drawable.header,1149852321));
         listaContactos.add(new ContactoModel("Florencia","florencia@outlook.com",R.drawable.header,1149815631));
-        listaContactos.add(new ContactoModel("Ana","ana@outlook.com",R.drawable.header,1164565665));
+        listaContactos.add(new ContactoModel("Facundo","facundo@outlook.com",R.drawable.header,1164565665));
+        listaContactos.add(new ContactoModel("Sofia","sofia@outlook.com",R.drawable.header,1178954862));
+        listaContactos.add(new ContactoModel("Camila","camila@outlook.com",R.drawable.header,1162501958));
+        listaContactos.add(new ContactoModel("Joaquin","joaquin@outlook.com",R.drawable.header,1186352015));
+        listaContactos.add(new ContactoModel("Federico","federico@outlook.com",R.drawable.header,1106059825));
+        listaContactos.add(new ContactoModel("Belen","belen@outlook.com",R.drawable.header,1131352987));
+        listaContactos.add(new ContactoModel("Ana","ana@outlook.com",R.drawable.header,1175741466));
+
+
     }
 }

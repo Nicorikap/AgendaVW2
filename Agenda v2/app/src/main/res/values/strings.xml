@@ -2,10 +2,10 @@
     <string name="shr_app_name">Volkswagen Agenda</string>
     <string name="shr_hint_username">Username</string>
     <string name="shr_hint_password">Password</string>
-    <string name="shr_button_next">Next</string>
+    <string name="shr_button_next">Iniciar Sesión</string>
     <string name="shr_button_cancel">Cancel</string>
-    <string name="shr_error_password">Wrong password.</string>
-    <string name="shr_error_username">Wrong username.</string>
+    <string name="error_password">Contraseña incorrecta</string>
+    <string name="error_username">Usuario incorrecto</string>
     <string name="shr_filter_title">Filter</string>
     <string name="shr_search_title">Search</string>
     <string name="shr_product_title">Title</string>
@@ -42,6 +42,8 @@
     <string name="call">Teléfono</string>
     <string name="whatsapp">Whatsapp</string>
     <string name="mail">E-mail</string>
+    <string name="forgot_psw">¿Olvidaste tu contraseña?</string>
+    <string name="wrong">Credenciales incorrectas</string>
 
     <!-- Strings de la activity de Settings -->
     <string name="titulo_actividad_configuracion">Configuración</string>

@@ -62,8 +62,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         }
 
-
-
     private void enviarWhatsapp(RelativeLayout botonWs,final int telefono) {
         botonWs.setOnClickListener(new View.OnClickListener() {
             @Override
