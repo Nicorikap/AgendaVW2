@@ -23,8 +23,8 @@ public class FirebaseExample extends AppCompatActivity{
     private static final String TAG = "FirebaseExample";
 
         private static final String KEY_NAME ="nombre";
-        private static final String KEY_MAIL ="email";
-        private static final String KEY_TEL ="telefono";
+        private static final String KEY_MAIL ="info";
+        private static final String KEY_TEL ="tel";
 
     private EditText texto_nombre;
     private EditText texto_mail;

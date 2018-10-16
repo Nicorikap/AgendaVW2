@@ -15,6 +15,14 @@
             android:id="@+id/item_configuracion"
             android:icon="@drawable/ic_settings_black_24dp"
             android:title="@string/item_configuracion" />
+        <item
+            android:id="@+id/item_agregarUsuario"
+            android:icon="@drawable/ic_person_add_black_24dp"
+            android:title="@string/addUser"/>
+        <item
+            android:id="@+id/item_listaFirebase"
+            android:icon="@drawable/ic_format_list_bulleted_black_24dp"
+            android:title="@string/listaFirebase"/>
     </group>
 
 </menu>

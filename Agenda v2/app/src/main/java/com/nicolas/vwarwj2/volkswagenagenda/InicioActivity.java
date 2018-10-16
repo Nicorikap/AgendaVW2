@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.nicolas.vwarwj2.volkswagenagenda.firebaseServices.FirebaseList;
 import com.nicolas.vwarwj2.volkswagenagenda.fragment.ContactosFragment;
 
 public class InicioActivity extends AppCompatActivity
@@ -130,7 +131,15 @@ public class InicioActivity extends AppCompatActivity
                 break;
             case R.id.item_configuracion:
                 item.setChecked(true);
+                iniciarIntento(SettingsActivity.class);
+                break;
+            case R.id.item_agregarUsuario:
+                item.setChecked(true);
                 iniciarIntento(FirebaseExample.class);
+                break;
+            case R.id.item_listaFirebase:
+                item.setChecked(true);
+                //iniciarIntento(FirebaseList.class);
                 break;
         }
 
@@ -150,7 +159,7 @@ public class InicioActivity extends AppCompatActivity
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager
                 .beginTransaction()
-                .replace(R.id.contenedor_principal, new ContactosFragment())
+                .replace(R.id.contenedor_principal, new FirebaseList())
                 .commit();
 
     }
@@ -160,10 +169,9 @@ public class InicioActivity extends AppCompatActivity
         startActivity(i);
     }
 
-
     public void goingBackToHome(){
         int pos=0;
-        ContactosFragment fragment = (ContactosFragment) getSupportFragmentManager().getFragments().get(pos);
+        FirebaseList fragment = (FirebaseList) getSupportFragmentManager().getFragments().get(pos);
     }
 
     public void addingProfileInfo (Intent i){

@@ -8,9 +8,7 @@ public class ContactoModel {
     private int foto;
     private int tel;
 
-    public ContactoModel (){
-
-    }
+    public ContactoModel (){ }
 
     public ContactoModel(String nombre, String info, int foto, int telefono) {
         this.nombre = nombre;

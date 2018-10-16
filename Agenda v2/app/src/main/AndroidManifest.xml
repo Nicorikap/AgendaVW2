@@ -39,6 +39,9 @@
         <activity android:name=".FirebaseExample"
             android:label="Ingresar Usuario"
             android:parentActivityName=".InicioActivity"/>
+        <activity android:name=".firebaseServices.FirebaseList"
+            android:label="Lista de Firebase"
+            android:parentActivityName=".InicioActivity"/>
 
         <service
             android:name=".firebaseServices.MyFirebaseInstanceIDService">
