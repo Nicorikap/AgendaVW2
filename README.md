@@ -12,5 +12,7 @@ Listado ordenado alfabeticamente.
 Boton search para filtrar el listado.
 Boton con link a outlook, telefono y whatsapp
 Inicio con login.
+Configurado Firebase ID y Firestore.
+Cambiado plantilla configuracion por ejemplo de ingresar usuario.
       
       
