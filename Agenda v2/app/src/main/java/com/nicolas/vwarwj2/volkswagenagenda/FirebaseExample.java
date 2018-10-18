@@ -41,12 +41,13 @@ public class FirebaseExample extends AppCompatActivity{
         texto_mail = findViewById(R.id.firebase_mail);
         texto_tel = findViewById(R.id.firebase_tel);
     }
-
+    @NonNull
     public void enviarUsuario (View v) {
         String nombre = texto_nombre.getText().toString();
         String mail = texto_mail.getText().toString();
         String tel =texto_tel.getText().toString();
         int telefono = Integer.parseInt(tel);
+
 
         Map<String,Object> user = new HashMap<>();
         user.put(KEY_NAME,nombre);

@@ -1,16 +1,12 @@
 package com.nicolas.vwarwj2.volkswagenagenda.firebaseServices;
 
 import android.content.Intent;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -27,6 +24,9 @@ import com.google.firebase.firestore.Query;
 import com.nicolas.vwarwj2.volkswagenagenda.ProfileActivity;
 import com.nicolas.vwarwj2.volkswagenagenda.R;
 import com.nicolas.vwarwj2.volkswagenagenda.pojo.ContactoModel;
+
+import static java.lang.Integer.parseInt;
+import static java.lang.Integer.valueOf;
 
 public class FirebaseList extends Fragment {
 
@@ -54,13 +54,12 @@ public class FirebaseList extends Fragment {
     }
 
     private void init() {
-
         listaUsuarios.setLayoutManager(new LinearLayoutManager(getActivity()));
         db = FirebaseFirestore.getInstance();
     }
 
     private void getUserList() {
-        Query query = db.collection("usuarios");
+        Query query = db.collection("usuarios").orderBy("nombre");
 
         FirestoreRecyclerOptions<ContactoModel> contacto = new FirestoreRecyclerOptions.Builder<ContactoModel>()
                 .setQuery(query, ContactoModel.class)
@@ -69,6 +68,7 @@ public class FirebaseList extends Fragment {
         adapter = new FirestoreRecyclerAdapter<ContactoModel, UserHolder>(contacto) {
             @Override
             public void onBindViewHolder(UserHolder holder, int position,final ContactoModel model) {
+
                 holder.nombre.setText(model.getNombre());
                 holder.info.setText(model.getInfo());
                 holder.foto.setImageResource(R.drawable.header);
@@ -78,7 +78,7 @@ public class FirebaseList extends Fragment {
                         Intent i = new Intent(view.getContext(), ProfileActivity.class);
                         i.putExtra("nombre", model.getNombre());
                         i.putExtra("email", model.getInfo());
-                        i.putExtra("telefono", model.getTelefono());
+                        i.putExtra("telefono",model.getTelefono());
                         i.putExtra("imageId", R.drawable.header);
                         view.getContext().startActivity(i);
                     }

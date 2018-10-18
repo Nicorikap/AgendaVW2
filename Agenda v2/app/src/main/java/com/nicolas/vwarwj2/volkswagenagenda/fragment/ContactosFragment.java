@@ -93,7 +93,7 @@ public class ContactosFragment extends Fragment {
         listaContactos.add(new ContactoModel("Joaquin","joaquin@outlook.com",R.drawable.header,1186352015));
         listaContactos.add(new ContactoModel("Federico","federico@outlook.com",R.drawable.header,1106059825));
         listaContactos.add(new ContactoModel("Belen","belen@outlook.com",R.drawable.header,1131352987));
-        listaContactos.add(new ContactoModel("Ana","ana@outlook.com",R.drawable.header,1175741466));
+        listaContactos.add(new ContactoModel("Ana","ana@outlook.com",R.drawable.header,45456456));
 
 
     }

@@ -19,10 +19,10 @@ import android.widget.ImageButton;
 
 import com.nicolas.vwarwj2.volkswagenagenda.firebaseServices.FirebaseList;
 import com.nicolas.vwarwj2.volkswagenagenda.fragment.ContactosFragment;
+import com.nicolas.vwarwj2.volkswagenagenda.pojo.ContactoModel;
 
 public class InicioActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
     NavigationView navigationView;
 
     @Override
@@ -113,7 +113,6 @@ public class InicioActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        Fragment fragmentOption = null;
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         switch (id) {
@@ -139,10 +138,12 @@ public class InicioActivity extends AppCompatActivity
                 break;
             case R.id.item_listaFirebase:
                 item.setChecked(true);
+                setFragmentoFirebase();
                 //iniciarIntento(FirebaseList.class);
                 break;
         }
 
+        Fragment fragmentOption = null;
         if (fragmentOption != null) {
             fragmentManager
                     .beginTransaction()
@@ -159,6 +160,16 @@ public class InicioActivity extends AppCompatActivity
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager
                 .beginTransaction()
+                .replace(R.id.contenedor_principal, new ContactosFragment())
+                .commit();
+
+    }
+
+    public void setFragmentoFirebase(){
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager
+                .beginTransaction()
                 .replace(R.id.contenedor_principal, new FirebaseList())
                 .commit();
 
@@ -171,7 +182,7 @@ public class InicioActivity extends AppCompatActivity
 
     public void goingBackToHome(){
         int pos=0;
-        FirebaseList fragment = (FirebaseList) getSupportFragmentManager().getFragments().get(pos);
+        ContactosFragment fragment = (ContactosFragment) getSupportFragmentManager().getFragments().get(pos);
     }
 
     public void addingProfileInfo (Intent i){
