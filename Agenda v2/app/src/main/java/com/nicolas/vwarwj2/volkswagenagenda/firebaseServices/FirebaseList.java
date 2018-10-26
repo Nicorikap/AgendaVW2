@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -25,8 +24,6 @@ import com.nicolas.vwarwj2.volkswagenagenda.ProfileActivity;
 import com.nicolas.vwarwj2.volkswagenagenda.R;
 import com.nicolas.vwarwj2.volkswagenagenda.pojo.ContactoModel;
 
-import static java.lang.Integer.parseInt;
-import static java.lang.Integer.valueOf;
 
 public class FirebaseList extends Fragment {
 

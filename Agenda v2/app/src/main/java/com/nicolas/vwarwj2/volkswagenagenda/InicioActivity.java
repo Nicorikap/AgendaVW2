@@ -134,7 +134,7 @@ public class InicioActivity extends AppCompatActivity
                 break;
             case R.id.item_agregarUsuario:
                 item.setChecked(true);
-                iniciarIntento(FirebaseExample.class);
+                iniciarIntento(GoogleLoginActivity.class);
                 break;
             case R.id.item_listaFirebase:
                 item.setChecked(true);

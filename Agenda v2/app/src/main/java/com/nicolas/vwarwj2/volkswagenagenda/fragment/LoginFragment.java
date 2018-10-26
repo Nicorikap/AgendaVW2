@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+
 import android.support.design.button.MaterialButton;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
@@ -20,7 +21,7 @@ import android.widget.Toast;
 import com.nicolas.vwarwj2.volkswagenagenda.InicioActivity;
 import com.nicolas.vwarwj2.volkswagenagenda.R;
 
-public class LoginFragment extends Fragment {
+public class LoginFragment extends Fragment{
 
     @Override
     public View onCreateView(
@@ -39,7 +40,6 @@ public class LoginFragment extends Fragment {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 nextButton.setEnabled(false);
-
             }
 
             @Override
@@ -129,6 +129,7 @@ public class LoginFragment extends Fragment {
 
         return view;
     }
+
     private boolean isPasswordValid(@Nullable Editable pass) {
         return (pass != null && pass.toString().equals("nicolas")) ;
     }
@@ -136,7 +137,7 @@ public class LoginFragment extends Fragment {
         return (user != null && user.toString().equals("nicolas")) ;
     }
     private void goToMainPage() {
-        Intent i = new Intent(getActivity(), InicioActivity.class);
+        Intent i = new Intent(this.getContext(), InicioActivity.class);
         startActivity(i);
 
     }

@@ -76,6 +76,5 @@ public void setFilter (ArrayList<ContactoModel> nuevaLista) {
         listaContactos = new ArrayList<>();
         listaContactos.addAll(nuevaLista);
         notifyDataSetChanged();
-
 }
 }

@@ -22,7 +22,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".InicioActivity">
-
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
         <intent-filter>
             <action android:name="android.intent.action.SEARCH" />
         </intent-filter>
@@ -39,9 +41,10 @@
         <activity android:name=".FirebaseExample"
             android:label="Ingresar Usuario"
             android:parentActivityName=".InicioActivity"/>
-        <activity android:name=".firebaseServices.FirebaseList"
-            android:label="Lista de Firebase"
+        <activity android:name=".GoogleLoginActivity"
+            android:label="Login Google"
             android:parentActivityName=".InicioActivity"/>
+
 
         <service
             android:name=".firebaseServices.MyFirebaseInstanceIDService">
@@ -49,6 +52,7 @@
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
             </intent-filter>
         </service>
+
         <service
             android:name=".firebaseServices.MyFirebaseMessagingService">
             <intent-filter>

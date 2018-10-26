@@ -87,6 +87,7 @@
                 android:text="@string/shr_button_next" />
 
         </RelativeLayout>
+
         <!-- Snippet from "Add text fields" section goes here.
 
         -->
